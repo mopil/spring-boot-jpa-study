@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:test # DB내리고 인메모리 DB로 테스트 돌리기 진짜 핵편한 기능
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+#        show_sql: true <- 얘는 print로 찍어서 쓰면 안된다
+        format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+
+# test resources 폴더에 설정파일을 두면 테스트는 이걸 우선으로 적용해서 해주는데
+# 스프링 부트가 더 쩌는점은 이 파일이 전체로 없어도 testdb로 넣어서 해준다?
